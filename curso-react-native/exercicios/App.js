@@ -6,8 +6,17 @@ import MinMax from './src/components/MinMax'
 import X, { Comp1,Comp2 } from './src/components/Multi'
 import Primeiro from './src/components/Primeiro'
 
+import Titulo from './components/Titulo'
+
+
 export default () => {
     <View style={style.App}>
+        <View style={style.App}>
+            <Titulo principal="Cadastro"
+                segundario="Tela de Cadastro do Produto"/>
+                {}
+        </View>
+        <Aleatorio min={1} max={60} />
         <Aleatorio min={1} max={60} />
         <Aleatorio min={1} max={60} />
         <Aleatorio min={1} max={60} />
