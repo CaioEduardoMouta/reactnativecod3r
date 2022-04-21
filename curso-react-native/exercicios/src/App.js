@@ -1,7 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react'
 import {View, StyleSheet } from 'react-native'
-import Botao  from './src/components/Botao';
+
+import Pai from './components/indireta/Pai'
+
+//import Contador from './components/Contador';
+//import Botao  from './components/Botao';
 //import Aleatorio from './src/components/Aleatorio';
 //import MinMax from './src/components/MinMax'
 //import X, { Comp1,Comp2 } from './src/components/Multi'
@@ -10,10 +14,12 @@ import Botao  from './src/components/Botao';
 //import Titulo from './src/components/Titulo'
 
 
-export default () => {
+export default () => (
     <View style={style.App}>
-        <Botao />
-    </View>
+      <Pai />
+        {
+    //<Contador inical={100} passo={13}/>
+    //<Botao />
     // <View style={style.App}>
     //     <View style={style.App}>
     //         <Titulo principal="Cadastro"
@@ -34,7 +40,9 @@ export default () => {
     //     <Primeiro />
     //     <StatusBar style="auto" />
     // </View>
-}
+        }
+        </View>
+)
 
 const style = StyleSheet.create({
     App: {
