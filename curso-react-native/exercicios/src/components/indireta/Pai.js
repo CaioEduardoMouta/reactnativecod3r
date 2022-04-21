@@ -15,7 +15,7 @@ export default props => {
     return (
         <>
         <Text style={Estilo.txtG}>
-            {texto}: {num}
+            {texto}{num}
         </Text>
       <Filho 
       min={1} 
