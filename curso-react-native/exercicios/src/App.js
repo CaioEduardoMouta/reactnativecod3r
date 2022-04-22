@@ -1,8 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react'
 import {View, StyleSheet } from 'react-native'
+import { SafeAreaView } from 'react-native-web';
 
-import ContadorV2 from './components/contador/ContadorV2'
+import Pai from './components/relacao/Pai'
+//import Diferenciar from './components/Diferenciar';
+
+//import ParImpar from './components/ParImpar';
+
+//import ContadorV2 from './components/contador/ContadorV2'
 
 //import Pai from './components/indireta/Pai'
 
@@ -17,10 +23,12 @@ import ContadorV2 from './components/contador/ContadorV2'
 
 
 export default () => (
-    <View style={style.App}>
-        <ContadorV2 />
-        
+    <SafeAreaView style={style.App}>
+          <Pai />
         {
+            //<ParImpar num={3} />
+            //<Diferenciar />
+            //<ContadorV2 />
            // <Pai />
     //<Contador inical={100} passo={13}/>
     //<Botao />
@@ -45,7 +53,7 @@ export default () => (
     //     <StatusBar style="auto" />
     // </View>
         }
-        </View>
+        </SafeAreaView>
 )
 
 const style = StyleSheet.create({
