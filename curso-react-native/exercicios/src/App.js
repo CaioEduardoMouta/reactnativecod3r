@@ -3,7 +3,10 @@ import React from 'react'
 import {View, StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-native-web';
 
-import Pai from './components/relacao/Pai'
+import UsuarioLogado from './components/UsuarioLogado';
+
+//import Familia from './components/relacao/Familia'
+//import Membro from './components/relacao/Membro'
 //import Diferenciar from './components/Diferenciar';
 
 //import ParImpar from './components/ParImpar';
@@ -24,8 +27,16 @@ import Pai from './components/relacao/Pai'
 
 export default () => (
     <SafeAreaView style={style.App}>
-          <Pai />
+        <UsuarioLogado usuario={{nome: 'Martins', email:'martins@mar.com'}} />
         {
+             /*   <Familia>
+                <Membro nome="Eduardo" sobrenome="Mouta"/>
+                <Membro nome="Marlene" sobrenome="Mouta"/>
+          </Familia>
+          <Familia>
+                <Membro nome="Caio" sobrenome="Carrazedo"/>
+                <Membro nome="Maya" sobrenome="Mouta" />
+          </Familia>*/
             //<ParImpar num={3} />
             //<Diferenciar />
             //<ContadorV2 />

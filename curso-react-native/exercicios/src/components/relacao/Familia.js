@@ -1,12 +1,13 @@
 import React from 'react'
 import { Text } from 'react-native-web'
 import Estilo from '../estilo'
-import Filho from './Filho'
+import Membro from './Membro'
 
 export default props => {
     return (
        <>
-        <Filho nome="Caio" sobrenome="Mouta" />
+       <Text>Membros da Família:</Text>
+        {props.children}
         
        </>
     )
