@@ -1,9 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react'
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import {View, StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-native-web';
 
-import UsuarioLogado from './components/UsuarioLogado';
+import ListaProdutos from './components/produtos/ListaProdutos';
+
+//import UsuarioLogado from './components/UsuarioLogado';
 
 //import Familia from './components/relacao/Familia'
 //import Membro from './components/relacao/Membro'
@@ -27,9 +30,10 @@ import UsuarioLogado from './components/UsuarioLogado';
 
 export default () => (
     <SafeAreaView style={style.App}>
-        <UsuarioLogado usuario={{nome: 'Martins', email:'martins@mar.com'}} />
+            <ListaProdutos/>
         {
-             /*   <Familia>
+             /*      <UsuarioLogado usuario={{nome: 'Martins', email:'martins@mar.com'}} />
+               <Familia>
                 <Membro nome="Eduardo" sobrenome="Mouta"/>
                 <Membro nome="Marlene" sobrenome="Mouta"/>
           </Familia>
@@ -64,8 +68,15 @@ export default () => (
     //     <StatusBar style="auto" />
     // </View>
         }
-        </SafeAreaView>
-)
+         </SafeAreaView>
+  )
+   
+
+        
+
+
+
+
 
 const style = StyleSheet.create({
     App: {
@@ -73,6 +84,5 @@ const style = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         padding: 20,
-        textAlign: "center"
     }
 })
