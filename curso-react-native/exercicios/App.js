@@ -1,10 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import {View, StyleSheet } from 'react-native'
-import { SafeAreaView } from 'react-native-web';
 
-import ListaProdutos from './components/produtos/ListaProdutos';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+
+import { SafeAreaView } from 'react-native-web'
+
+import DigiteSeuNome from './src/components/DigiteSeuNome';
+
+//import ListaProdutos from './components/produtos/ListaProdutos';
+//import ListaProdutosV2 from './components/produtos/ListaProdutosV2';
 
 //import UsuarioLogado from './components/UsuarioLogado';
 
@@ -30,9 +34,12 @@ import ListaProdutos from './components/produtos/ListaProdutos';
 
 export default () => (
     <SafeAreaView style={style.App}>
-            <ListaProdutos/>
+            <DigiteSeuNome />   
         {
-             /*      <UsuarioLogado usuario={{nome: 'Martins', email:'martins@mar.com'}} />
+             /*     
+             <ListaProdutosV2/> 
+             <ListaProdutos/>
+             <UsuarioLogado usuario={{nome: 'Martins', email:'martins@mar.com'}} />
                <Familia>
                 <Membro nome="Eduardo" sobrenome="Mouta"/>
                 <Membro nome="Marlene" sobrenome="Mouta"/>
