@@ -5,7 +5,15 @@ import * as React from 'react';
 
 import { SafeAreaView } from 'react-native-web'
 
-import DigiteSeuNome from './src/components/DigiteSeuNome';
+import Mega from './src/components/mega/Mega';
+//import FlexboxV4 from './src/components/layout/FlexboxV4';
+//import FlexboxV3 from './src/components/layout/FlexboxV3';
+
+//import FlexboxV1 from './src/components/layout/FlexboxV1';
+
+//import Quadrado from './src/components/layout/Quadrado.';
+
+//import DigiteSeuNome from './src/components/DigiteSeuNome';
 
 //import ListaProdutos from './components/produtos/ListaProdutos';
 //import ListaProdutosV2 from './components/produtos/ListaProdutosV2';
@@ -34,9 +42,12 @@ import DigiteSeuNome from './src/components/DigiteSeuNome';
 
 export default () => (
     <SafeAreaView style={style.App}>
-            <DigiteSeuNome />   
+           <Mega />
         {
-             /*     
+             /*    
+             <FlexboxV4 />
+              <FlexboxV2 /> 
+              <DigiteSeuNome />  
              <ListaProdutosV2/> 
              <ListaProdutos/>
              <UsuarioLogado usuario={{nome: 'Martins', email:'martins@mar.com'}} />
