@@ -5,7 +5,7 @@ import * as React from 'react';
 
 import { SafeAreaView } from 'react-native-web'
 
-import Mega from './src/components/mega/Mega';
+import MegaNumero from './src/components/mega/Mega';
 //import FlexboxV4 from './src/components/layout/FlexboxV4';
 //import FlexboxV3 from './src/components/layout/FlexboxV3';
 
@@ -42,7 +42,7 @@ import Mega from './src/components/mega/Mega';
 
 export default () => (
     <SafeAreaView style={style.App}>
-           <Mega qtdeNumeros={21}/>
+           <MegaNumero qtdeNumeros={21}/>
         {
              /*    
              <FlexboxV4 />

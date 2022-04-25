@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, TextInput } from 'react-native'
+import { View, Text, TextInput } from 'react-native'
 import { Button } from 'react-native'
 import Estilo from '../estilo'
 
@@ -22,15 +22,15 @@ export default class Mega extends Component {
         return nums.includes(novo) ? this.gerarNumeroNaoContido(nums) : novo
     }
 
-/*     gerarNumeros = () => {
+    gerarNumeros = () => {
         const numeros = Array(this.state.qtdeNumeros)
             .fill()
             .reduce(n =>[...n, this.gerarNumeroNaoContido(n)], [] )
             .sort((a,b) => a - b)
         this.setState({numeros})
-    } */
+    }
 
-    gerarNumeros = () => {
+    /* gerarNumeros = () => {
         const { qtdeNumeros } = this.state
         const numeros = []
        
@@ -41,7 +41,7 @@ export default class Mega extends Component {
 
         numeros.sort((a,b) => a - b)
         this.setState({numeros})
-    }
+    } */
 
     exibirNumeros = () => {
         const nums = this.state.numeros
@@ -59,7 +59,7 @@ export default class Mega extends Component {
                 </Text>
               
                 <TextInput 
-                    keyboardType="numeric"
+                    keyboardType='numeric'
                     style={{borderBottomWidth: 1}}
                     placeholder='Quantidade de números'
                     value={`${this.state.qtdeNumeros}`}
@@ -75,7 +75,7 @@ export default class Mega extends Component {
              <View style={{
                     marginTop: 20,
                     flexDirection: 'row',
-                    flexWrap: 'wrap',
+                   flexWrap: 'wrap',
                     justifyContent: 'center'
                 }}>
                 {this.exibirNumeros()}
