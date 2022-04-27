@@ -2,28 +2,54 @@ import { StatusBar } from 'expo-status-bar';
 import React, {Component} from 'react';
 import { render } from 'react-dom';
 import { StyleSheet, Text, View } from 'react-native';
-import Button from './components/Button';
+import Button from './src/components/Button';
+import Display from './src/components/Display';
+
+const initialState = {
+  displayValue: '0',
+  clearDisplay: false,
+  operation:null,
+  values: [0,0],
+  current: 0,
+}
 
 export default class App extends Component {
+  state = {... initialState}
+
+  addDigit = n => {
+    this.setState({displayValue: n})
+  }
+
+  clearMemory = () => {
+    this.setState({ displayValue: '0'})
+  }
+
+  setOperation = operation => {
+
+  }
+
   render() {
   return (
     <View style={styles.container}>
+      <Display value={this.state.displayValue} />
       <View style={styles.buttons}>
-        <Button label='AC' />
-        <Button label='/' />
-        <Button label='7' />
-        <Button label='8' />
-        <Button label='9' />
-        <Button label='*' />
-        <Button label='4' />
-        <Button label='5' />
-        <Button label='6' />
-        <Button label='-' />
-        <Button label='1' />
-        <Button label='2' />
-        <Button label='3' />
-        <Button label='+' />
-        <Button label='.' />
+        <Button label='AC' double onClick={this.clearMemory} />
+        <Button label='/' operation onClick={() => this.setOperation('/')} />
+        <Button label='7' onClick={this.addDigit} />
+        <Button label='8' onClick={this.addDigit}/>
+        <Button label='9' onClick={this.addDigit}/>
+        <Button label='*'  operation onClick={() => this.setOperation('*')}/>
+        <Button label='4' onClick={this.addDigit}/>
+        <Button label='5' onClick={this.addDigit}/>
+        <Button label='6' onClick={this.addDigit}/>
+        <Button label='-' operation onClick={() => this.setOperation('-')}/>
+        <Button label='1' onClick={this.addDigit}/>
+        <Button label='2' onClick={this.addDigit}/>
+        <Button label='3' onClick={this.addDigit}/>
+        <Button label='+' operation onClick={() => this.setOperation('+')}/>
+        <Button label='0' double  onClick={this.addDigit}/>
+        <Button label='.' operation onClick={() => this.setOperation('.')}/>
+        <Button label='=' operation onClick={() => this.setOperation('=')}/>
       </View>
     </View>
   );
