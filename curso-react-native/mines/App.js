@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import { StyleSheet, Text, View, Alert } from 'react-native';
 import params  from './src/params'
 import MineField from './src/components/MineField';
+import header from './src/components/header';
+import LevelSelection from './src/screens/LevelSelection';
 
 
 import {
@@ -10,8 +12,11 @@ import {
   openField,
   hadExplosion,
   wonGame,
-  showMines
+  showMines,
+  invertFlag,
+  flagsUsed
 } from './src/functions'
+import Header from './src/components/header';
 
 
 export default class App extends Component {
@@ -33,7 +38,8 @@ export default class App extends Component {
     return {
       board: createMinedBoard(rows,cols, this.minesAmount()),
       won: false,
-      lost: false
+      lost: false,
+      showLevelSelection: false,
       
     }
   }
@@ -56,16 +62,37 @@ export default class App extends Component {
     this.setState({ board, lost, won})
   }
 
+  onSelectField = (row, column) => {
+    const board = cloneBoard(this.state.board)
+    invertFlag(board, row, column)
+    const won = wonGame(board)
+
+    if(won) {
+      Alert.alert('Parabéns', 'Você Venceu!')
+    }
+
+    this.setState({ board, won})
+  }
+
+  onLevelSelected = level => {
+    params.difficultLevel = level
+    this.setState(this.createState())
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Iniciando o mines</Text>
-        <Text style={styles.instructions}>Tananho da grade:
-          {params.getRowsAmount()}x{params.getColumnsAmount()}</Text>
+        <LevelSelection isVisibile={this.state.showLevelSelection}
+        onLevelSelected={this.onLevelSelected}
+        onCancel={() => this.setState({ showLevelSelection: false})} />
+       <Header flagsLeft={this.minesAmount() - flagsUsed(this.state.board)}
+         onNewGame={() => this.setState(this.createState())}
+         onFlagPress={()=> this.setState({ showLevelSelection: true})}/>
         <View style={styles.board}>
 
           <MineField board={this.state.board} 
-          onOpenField={this.onOpenField}/>
+          onOpenField={this.onOpenField} 
+          onSelectField={this.onSelectField}/>
         </View>
       </View>
     );
