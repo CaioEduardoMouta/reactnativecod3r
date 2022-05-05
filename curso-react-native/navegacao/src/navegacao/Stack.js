@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createAppContainer, createDrawerNavigator } from 'react-navigation';
 import TelaA from '../views/TelaA'
 import TelaB from '../views/TelaA'
 import TelaC from '../views/TelaA'
 import PassoStack from '../components/PassoStack';
 
-const Stack = createNativeStackNavigator()
+const Stack = createDrawerNavigator()
 
 export default props => {
     <Stack.Naigator initialRouteName="TelaA"

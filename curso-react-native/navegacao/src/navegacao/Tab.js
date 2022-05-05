@@ -5,7 +5,7 @@ import TelaA from '../views/TelaA'
 import TelaB from '../views/TelaB'
 import TelaC from '../views/TelaC'
 import PassoStack from '../components/PassoStack'
-
+import { createAppContainer, createDrawerNavigator } from 'react-navigation';
 const Tab = createBottomTabNavigator()
 
 export default props => (

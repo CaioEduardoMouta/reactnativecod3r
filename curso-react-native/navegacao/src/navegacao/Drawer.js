@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createAppContainer, createDrawerNavigator } from 'react-navigation';
 import TelaA from '../views/TelaA'
 import TelaB from '../views/TelaB'
 import TelaC from '../views/TelaC'
