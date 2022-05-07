@@ -27,7 +27,11 @@ export default ({route, navigation}) => {
                 value={user.avatarUrl}
            />    
            <Button
-                title='Salvar'
+                title="Salvar"
+                onPress={() => {
+                    navigation.goBack()
+                }}
+
            />
            
        </View>
