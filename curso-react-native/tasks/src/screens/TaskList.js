@@ -122,6 +122,12 @@ export default class TaskList extends Component {
                    keyExtractor ={item => `${item.id}`}
                    renderItem={({item}) => <Task {...item} tooggleTask={this.tooggleTask} onDelete={this.deleteTask} /> }/>       
                 </View>
+                <TouchableOpacity style={styles.addButton}
+                    activeOpacity={0.7}
+                    onPress={() => this.setState({ showAddTask: true})}>
+                <Icon name="plus" size={20}
+                color={commomStyles.colors.secundary} />
+                </TouchableOpacity>
                 
             </View>
         )
