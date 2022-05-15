@@ -6,7 +6,7 @@ import datetimepicker from '@react-native-community/datetimepicker'
 
 import commonStyles  from '../commonStyles'
 
-const initialState = { desc: '', date: new Date(), showDatePicker: false}
+
 
 export default class AddTask extends Component {
 

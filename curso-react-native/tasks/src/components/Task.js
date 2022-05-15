@@ -50,7 +50,7 @@ export default props => {
         <Swipeable renderRightActions={getRightContent}>
             <View style={styles.container}>
                 <TouchableWithoutFeedback
-                onPress={() => props.toggleTask(props.id)}>
+                onPress={() => props.onToggleTask(props.id)}>
                 <View style={styles.checkContainer}>
                     {getCheckView(props.doneAt)}
                 </View>
