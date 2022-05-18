@@ -54,6 +54,12 @@ export default class Auth extends Component {
                         </View>
                     </TouchableOpacity>  
                 </View>
+                <TouchableOpacity style={{padding: 10}}
+                    OnPress={() => this.setState({ stageNew: !this.state.stageNew })}>
+                    <Text style={{ padding: 10 }} >
+                        {this.state.stageNew ? 'Já possui conta?' : 'Ainda não possui conta?'}
+                    </Text>
+                </TouchableOpacity>
             </ImageBackground>
         )
     }
@@ -74,7 +80,7 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         fontFamily: commonStyles.fontFamily,
-        color:"FFF",
+        color:"#FFF",
         fontSize: 20,
         textAlign: 'center',
         marginBottom: 10
