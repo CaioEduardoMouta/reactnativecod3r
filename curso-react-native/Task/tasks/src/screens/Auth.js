@@ -16,9 +16,9 @@ import AuthInput from '../components/AuthInput'
 import {server, showError, showSucess } from '../common'
 
 const initialState = {
-    name: '',
-        email: '',
-        password: '',
+        name: '',
+        email: 'caio@caio.com.br',
+        password: '2123',
         confirmPassword: '',
         stageNew: false
 }
