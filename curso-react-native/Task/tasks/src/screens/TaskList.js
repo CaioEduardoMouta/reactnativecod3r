@@ -39,15 +39,15 @@ export default class TaskList extends Component {
             showDoneTasks: savedState.showDoneTasks
         }, this.filterTasks)
 
-        this.loadTasks
+        this.loadTasks()
     }
 
     loadTasks = async () => {
-        try {
-            const maxDate = moment().format('YYYY-MM-DD 23:59:59')
+        try{
+            const maxDate = moment().format('YYYY-MM-10 23:59:59')
             const res = await Axios.get(`${server}/tasks?date=${maxDate}`)
-            this.setState({ tasks: res.data }, this.filterTasks)
-        } catch(e) {
+            this.setState({ tasks: res.data })
+        }catch(e) {
             showError(e)
         }
     }
@@ -56,9 +56,7 @@ export default class TaskList extends Component {
         this.setState({ showDoneTasks: !this.state.showDoneTasks }, this.filterTasks)
     }
 
-    isPending = task => {
-        return task.doneAt === null
-    } 
+   
 
     filterTasks = () => {
         let visibleTasks = null
@@ -73,43 +71,49 @@ export default class TaskList extends Component {
         this.setState({ visibleTasks })
         AsyncStorage.setItem('state', JSON.stringify({
                 showDoneTasks: this.state.showDoneTasks
-        })
-    
-}
-
-    tooggleTask = taskId => {
-        const tasks = [...this.state.tasks]
-        tasks.forEach(task => {
-            if(task.id === taskId) {
-                task.doneAt = task.doneAt ? null : new Date()
-            } 
-        })
-
-        this.setState({tasks}, this.filterTasks)
+        }))
     }
 
-    addTask = newTask => {
+
+    tooggleTask = async taskId => {
+       try {
+           await Axios.put(`${server}/tasks/${taskId}/toggle`)
+           await this.loadTasks() 
+        }catch(e) {
+            showError(e)
+       }
+    }
+
+    addTask = async newTask => {
         if(!newTask.desc || !newTask.desc.trim()) {
             Alert.alert('Dados Inválidos', 'Descrição não informada')
             return
         }
 
-        const tasks = [...this.state.tasks]
-        tasks.push({
-            id: Math.random(),
-            desc: newTask.desc,
-            estimateAt: newTask.date,
-            doneAt: null
-        })
+        try{
+            await Axios.post(`${server}/tasks`, {
+                desc: newTask.desc,
+                estimateAt: newTask.date
+            })
+            this.setState({  showAddTask: false }, this.loadTasks)
 
-        this.setState({tasks, showAddTask: false }, this.filterTasks)
-        
-        deleteTask = id => {
-            const tasks = this.state.tasks.filter(task => task.id !== id)
-            this.setState({tasks}, this.filterTasks)
+        }catch(e) {
+            showError(e)
         }
-    
+ 
+       
+    }  
+
+    deleteTask = async id => {
+       try {
+        await Axios.delete(`${server}/tasks/${taskId}/toogle`)
+        await this.loadTasks()
+    }catch(e) {
+            showError(e)
+       }
     }
+    
+    
     render() {
         const today = moment().locale('pt-br').format('ddd, D [de] MMMM' )
         return (
