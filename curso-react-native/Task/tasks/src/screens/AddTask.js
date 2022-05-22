@@ -10,7 +10,7 @@ export default RNDateTimePicker;
 
 export default class AddTask extends Component {
 
-    state ={
+    state = {
         ...initialState
     }
 
