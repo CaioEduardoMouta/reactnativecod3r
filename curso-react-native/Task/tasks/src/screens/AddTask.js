@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import {Platform, Modal, View, Text, TouchableOpacity, TextInput, StyleSheet, TouchableWithoutFeedback} from 'react-native'
 
 import moment from 'moment'
-import datetimepicker from '@react-native-community/datetimepicker'
+import RNDateTimePicker from './datetimepicker';
 
 import commonStyles  from '../commonStyles'
-
+export default RNDateTimePicker;
 
 
 export default class AddTask extends Component {
@@ -24,7 +24,7 @@ export default class AddTask extends Component {
     }
 
     getDatePicker = () => {
-        let datePicker = <datetimepicker
+        let datePicker = <RNDateTimePicker
                 value={this.state.date}
                 onChnage={(_,date) => this.setState({ date, showDatePicker:false })}
                 mode='date'/>
