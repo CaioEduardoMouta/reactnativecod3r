@@ -8,7 +8,8 @@ class Post extends Component {
         return (
             <View style={StyleSheet.container}>
                 <Image source={this.props.image} style={styles.image}/>
-                <Author email='caiocarrazedo@gmail.com' nickname='caio de carrazedo' />
+                <Author email={this.props.email}
+                 nickname={this.props.nickname} />
                 <Comments Comments={this.props.comments} />
             </View>
         )

@@ -33,8 +33,17 @@ class Feed extends Component {
                 <FlatList
                     data={this.state.posts}
                     keyExtractor={item => `${item.id}`}
-                    renderItem={({ item}) => }
+                    renderItem={({ item  }) =>
+                        <Post key={item.id} {...item} /> } />
             </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
+})
