@@ -22,5 +22,24 @@ const MenuRoutes = {
                 <Icon name='camera' size={30} color={tintColor} />
                 
         }
+    },
+    Profile: {
+        name: 'Profile',
+        screen: Feed,
+        navigationOptions: {
+            title: 'Profile',
+            tabBarIcon: ({ tintColor: color }) =>
+            <Icon name='user' size={30} color={tintColor} />
+        }
     }
 }
+
+const MenuConfig= {
+    initialRouteName: 'Feed',
+    tabBarOptions: {
+        showLabel: false,
+    }
+}
+
+const MenuNavigator = createButtonTabNavigator(MenuRoutes, MenuConfig)
+export default MenuNavigator
