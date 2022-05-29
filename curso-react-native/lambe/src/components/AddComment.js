@@ -8,7 +8,7 @@ import {
     Alert
 } from 'react-native'
 
-import  Icon  from 'react-native-vector-icons/FontAwesome'
+import { Icon } from 'react-native-vector-icons/Icon'
 
 class AddComment extends Component {
     state = {

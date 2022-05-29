@@ -6,7 +6,7 @@ const reducers = combineReducers({
 })
 
 const storeConfig = () => {
-    return createStore(reduucers)
+    return createStore(reducers)
 }
 
 export default storeConfig

@@ -1,4 +1,4 @@
-import React, { Componen, Component } from 'react'
+import React, { Component } from 'react'
 import { StyleSheet, FlatList, View } from 'react-native'
 import Header from '../components/Header'
 import Post  from '../components/Post'
@@ -47,3 +47,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     }
 })
+
+export default Feed
