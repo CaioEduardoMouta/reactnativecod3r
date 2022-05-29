@@ -1,4 +1,6 @@
 import React, { Component} from 'react'
+import { connect } from 'react-redux'
+import { addComment } from '../store/actions/posts'
 import { 
     View, 
     Text, 
@@ -18,7 +20,9 @@ class AddComment extends Component {
     }
 
     handleAddComment = () => {
-        Alert.alert('Adicionado!', this.state.comment)
+       this.props.onAddComment({
+           
+       })
     }
 
     render() {

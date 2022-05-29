@@ -9,9 +9,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo/webpack-config": "~0.16.2",
     "axios": "0.27.2",
-    "expo": "^45.0.4",
-    "expo-status-bar": "~1.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-native": "0.68.2",
@@ -22,7 +21,8 @@
     "react-navigation": "^4.4.4",
     "react-redux": "5.0.7",
     "redux": "4.0.0",
-    "redux-thunk": "2.3.0"
+    "redux-thunk": "2.3.0",
+    "webpack-dev-server": "~3.11.0"
   },
   "devDependencies": {
     "babel-jest": "^28.1.0",
