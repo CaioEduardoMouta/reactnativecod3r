@@ -2,7 +2,7 @@
   "name": "lambe",
   "version": "1.0.0",
   "scripts": {
-    "start": "expo start"
+    "start": "node node_modules/"
    
   },
   "dependencies": {
