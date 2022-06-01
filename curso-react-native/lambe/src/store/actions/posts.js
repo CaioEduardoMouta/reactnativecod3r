@@ -3,16 +3,27 @@ import axios from 'axios'
 
 export const addPost = post => {
     return dispatch => {
-       axios.post('/posts.json', { ...post }) 
+        axios({
+            url:'uploadImage',
+            baseURL: '',
+            method: 'post',
+            data: {
+                image: post.image.base64
+            }
+        })
             .catch(err => console.log(err))
-            .then(res => console.log(res.data))
+            .then(res => {
+                axios.post('/posts.json', { ...post }) 
+                .catch(err => console.log(err))
+                .then(res => console.log(res.data))
+            })
+
+   
             
     }
 }
 
 export const addComment = comment => {
     return {
-        type: ADD_COMMENT,
-        payload: comment
-    }
+        type: ADD_CO
 }
