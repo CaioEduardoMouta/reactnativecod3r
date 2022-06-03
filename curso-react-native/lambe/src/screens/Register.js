@@ -6,6 +6,7 @@ import {
     TouchableOpacity,
     TextInput
 } from 'react-native'
+import { connect } from 'react-redux'
 
 class Register extends Component {
     state = {
@@ -26,8 +27,9 @@ class Register extends Component {
                 <TextInput placeholder='Senha' style={styles.input}
                     secureTextEntry={true} value={this.state.password}
                     onChangeText={password => this.setState({ password })}/>  
-                <TouchableOpacity onPress={() => {}} style={styles.buttom}>
-                    <Text style={styles.buttomText}> Salvar</Text>
+                <TouchableOpacity onPress={() => {}} 
+                style={styles.buttom}>
+                <Text style={styles.buttomText}> Salvar</Text>
                 </TouchableOpacity>      
             </View>
         )
@@ -59,5 +61,7 @@ const styles = StyleSheet.create({
         paddingLeft: 15
     }
 })
+
+const mapDispatchToProps
 
 export default Register
