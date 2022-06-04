@@ -27,7 +27,7 @@ class Register extends Component {
                 <TextInput placeholder='Senha' style={styles.input}
                     secureTextEntry={true} value={this.state.password}
                     onChangeText={password => this.setState({ password })}/>  
-                <TouchableOpacity onPress={() => {}} 
+                <TouchableOpacity onPress={() => {this.props.onCreateUser(this.state)}} 
                 style={styles.buttom}>
                 <Text style={styles.buttomText}> Salvar</Text>
                 </TouchableOpacity>      
@@ -62,6 +62,10 @@ const styles = StyleSheet.create({
     }
 })
 
-const mapDispatchToProps
+const mapDispatchToProps = dispatch => {
+    return {
+        onCreateUser: user => dispatch(CreateUser(user))
+    }
+}
 
-export default Register
+export default connect(null, mapDispatchToProps)(Register)
