@@ -62,6 +62,12 @@ const styles = StyleSheet.create({
     }
 })
 
+const mapStateToProps = dispatch => {
+    return {
+        onCreateUser: user => dispatch(createUser(user))
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
         onCreateUser: user => dispatch(CreateUser(user))

@@ -24,7 +24,7 @@ class Login extends Component {
 
     login = () => {
         this.props.onLogin({ ...this.state})
-        this.props.navigation.navigate('Profile')
+     
     }
 
     render() {
@@ -79,7 +79,9 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = ({ user }) => {
-    
+    return {
+        isLoading: user.isLoading
+    }
 }
 
 const mapDispatchToProps = dispatch => {

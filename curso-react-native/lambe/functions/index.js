@@ -28,7 +28,6 @@ exports.uploadImage = functions.https.onRequest((request, response) => {
                 }
                 },  (err, file) => {
                     if(err) {
-                        console.log(err)
                         return response.status(500)
                         .json({ error: err})
                     }else {
