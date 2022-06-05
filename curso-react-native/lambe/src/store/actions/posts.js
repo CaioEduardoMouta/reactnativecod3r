@@ -3,11 +3,11 @@ import { setMessage } from "./message"
 import axios from 'axios'
 
 export const addPost = post => {
-    return dispatch => {
+    return (dispatch, getState) => {
         dispatch(creatingPost())
         axios({
             url:'uploadImage',
-            baseURL: '',
+            baseURL: 'https://lambe-e5e83-default-rtdb.firebaseio.com',
             method: 'post',
             data: {
                 image: post.image.base64
@@ -19,9 +19,9 @@ export const addPost = post => {
                     text: 'Ocorreu um erro inesperado'
                 }))
             })
-            .then(res => {
+            .then(resp => {
                 post.image = resp.data.imageUrl
-                axios.post('/posts.json', { ...post }) 
+                axios.post(`/posts.json?auth=${getState().user.toke}`, { ...post }) 
                 .catch(err => {
                     dispatch(setMessage({
                         title: 'Erro',
@@ -43,12 +43,17 @@ export const addPost = post => {
 export const addComment = comment => {
    return dispatch => {
        axios.get(`/posts/${payload.postId}.json`)
-       .catch(err => console.log(err))
+       .catch(err =>{
+            dispatch(setMessage({
+                title: 'Erro',
+                text: 'Ocorreu um erro inesperado'
+            }))
+       })
        .then(res => {
            const comments = res.data.comments || []
            comments.push(payload.comment)
-           axios.patch(`/posts/${payload.postId}.json`
-           , { comments })
+           axios.patch(`/posts/${payload.postId}.json?auth=${getState().user.token}`,
+            { comments })
            .catch(err => { dispatch(setMessage({
             title: 'Erro',
             text: 'Ocorreu um erro inesperado'

@@ -3,21 +3,28 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
   },
   
   "dependencies": {
-    "react": "16.4.1",
-    "react-native": "0.56.0",
-    "axios": "0.18.0",
-    "react-native-gravatar": "1.0.2",
-    "react-native-image-picker": "0.27.1",
-    "react-native-vector-icons": "5.0.0",
-    "react-navigation": "2.14.2",
-    "react-redux": "5.0.7",
-    "redux": "4.0.0",
-    "redux-thunk": "2.3.0"
+    "expo": "~44.0.0",
+    "expo-status-bar": "~1.2.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-web": "0.17.1",
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/native-stack": "^6.6.2",
+    "@react-navigation/stack": "^6.6.2",
+    "react-native-elements": "^3.4.2",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-safe-area-context": "^3.3.2",
+    "react-native-screens": "^3.13.1",
+    "react-native-vector-icons": "^9.0.0"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",

@@ -15,6 +15,17 @@ class Register extends Component {
         password: ''
     }
 
+    componentDidUpdate = prevProps => {
+        if(prevProps.isLoading && !this.props.isLoading) {
+            this.setState({
+                name: '',
+                email: '',
+                password: ''
+            })
+            this.props.navigation.navigate('Profile')
+        }
+    }
+
     render() {
         return (
             <View style={styles.container}>
